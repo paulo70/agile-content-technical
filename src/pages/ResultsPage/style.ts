@@ -11,6 +11,7 @@ export const Container  = styled(Original) `
   ul{
     flex: 1;
     margin: 30px 0;
+    padding: 0 10px;
     list-style: none;
     li{
       cursor: pointer;
@@ -32,7 +33,6 @@ export const Container  = styled(Original) `
     }
   }
 `
-
 export const ItemDetails = styled.div `
   background: #fff;
   margin: 40px 0 0 30px;
@@ -50,7 +50,7 @@ export const ItemDetails = styled.div `
 
   &.absolute {
     position: absolute;
-    top: 0;
+    top: 100px;
     z-index: 10;
   }
 

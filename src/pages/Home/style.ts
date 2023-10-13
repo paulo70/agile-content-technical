@@ -6,7 +6,6 @@ export const Container = styled.div `
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 0 15px;
   width: 100%;
   max-width: 1200px;
   min-height: calc(100vh - 100px);
@@ -24,5 +23,11 @@ export const Container = styled.div `
     max-width: 300px;
     max-height: 100px;
     height: auto;
+  }
+
+   @media (max-width: 768px) {
+    input{
+      width: 200px;
+    }
   }
 `

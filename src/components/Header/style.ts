@@ -48,6 +48,12 @@ export const WrapperInput = styled.div `
   img{
     max-width: 100px;
   }
+
+  @media (max-width: 768px) {
+    input{
+      width: 200px;
+    }
+  }
 `
 export const CloseIcon = styled.div`
   cursor: pointer;
