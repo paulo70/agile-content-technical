@@ -10,7 +10,7 @@ export const Container  = styled(Original) `
 
   ul{
     flex: 1;
-    margin-top: 30px;
+    margin: 30px 0;
     list-style: none;
     li{
       cursor: pointer;

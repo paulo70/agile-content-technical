@@ -66,7 +66,7 @@ const SearchResults = () => {
       )}
       {selectedItem && (
         <ItemDetails className={isItemDetailsFixed ? "fixed" : "absolute"}>
-          <img src={selectedItem.image} alt="Imagem" />
+          <img src={selectedItem.image} alt="Images from animals" />
           <a href="#">{selectedItem.url}</a>
           <h3>{selectedItem.title}</h3>
           <p>{selectedItem.description}</p>

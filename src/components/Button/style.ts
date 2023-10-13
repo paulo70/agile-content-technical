@@ -13,5 +13,6 @@ export const BTN = styled.button `
 
  &:disabled{
   background: #f3f3f3;
+  cursor: not-allowed;
  }
 `
