@@ -38,7 +38,7 @@ const SearchResults = () => {
       return (
         searchTerm &&
         item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.title.toLowerCase().includes(search.value.toLowerCase())
+        item.type.toLowerCase().includes(search.value.toLowerCase())
       );
     });
     setFilterData(filteredData);
