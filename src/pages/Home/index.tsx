@@ -24,7 +24,7 @@ const HomePage = () => {
         name="Buscar" 
         onClick={handleSearch}
         disabled={searchTerm === ''}
-        />
+      />
     </Container> 
     )
   }
