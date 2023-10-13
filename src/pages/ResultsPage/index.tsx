@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import data from "../../services/faker";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext} from "react";
 import { SearchContext } from "../../Context/Search/ContextSearch";
 import { Container, ItemDetails } from "./style";
 
@@ -17,6 +17,7 @@ const SearchResults = () => {
   const { searchTerm } = useParams();
   const { search } = useContext(SearchContext);
   const [filterData, setFilterData] = useState<SearchResultItem[]>([]);
+  const [isItemDetailsFixed, setIsItemDetailsFixed] = useState(true);
   const [selectedItem, setSelectedItem] = useState<{
     title: string;
     description: string;
@@ -24,13 +25,12 @@ const SearchResults = () => {
     url: string;
   } | null>(null);
 
+
   const handleGetItem = (item: SearchResultItem) => {
-    setSelectedItem({
-      title: item.title,
-      description: item.description,
-      image: item.image,
-      url: item.url,
-    });
+    setSelectedItem(item);
+    if (window.innerWidth <= 768) {
+      setIsItemDetailsFixed(false);
+    }
   };
 
   useEffect(() => {
@@ -53,7 +53,10 @@ const SearchResults = () => {
       ) : (
         <ul>
           {filterData.map((item) => (
-            <li key={item.id} onClick={() => handleGetItem(item)}>
+            <li 
+              key={item.id} 
+              onClick={() => {handleGetItem(item)}}
+              >
               <a href="">{item.url}</a>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -62,7 +65,7 @@ const SearchResults = () => {
         </ul>
       )}
       {selectedItem && (
-        <ItemDetails>
+        <ItemDetails className={isItemDetailsFixed ? "fixed" : "absolute"}>
           <img src={selectedItem.image} alt="Imagem" />
           <a href="#">{selectedItem.url}</a>
           <h3>{selectedItem.title}</h3>
