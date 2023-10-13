@@ -46,13 +46,9 @@ export const Profile =  styled.div `
 export const WrapperInput = styled.div `
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
   img{
     max-width: 100px;
-  }
-
-  input{
-    height: 20px;
-    width: 100%;
-    max-width: 300px;
   }
 `

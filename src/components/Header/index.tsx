@@ -19,7 +19,10 @@ const MainHeader = () => {
         {isResultsPage ? (
           <style.WrapperInput>
             <img src={Google} alt="Brand"/>
-            <Input value={search.value} onChange={(e) => setSearch({ value: e.target.value })} />
+            <Input 
+              value={search.value} 
+              onChange={(e) => setSearch({ value: e.target.value })} 
+            />
           </style.WrapperInput>
           
           ) : (
