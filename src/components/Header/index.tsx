@@ -12,6 +12,10 @@ const MainHeader = () => {
   const { search, setSearch } = useContext(SearchContext);
   const location = useLocation();
   const isResultsPage = location.pathname.includes("/results");
+
+  const clearSearch = () => {
+    setSearch({ value: '' }); 
+  }
   
   return (
     <>
@@ -23,6 +27,12 @@ const MainHeader = () => {
               value={search.value} 
               onChange={(e) => setSearch({ value: e.target.value })} 
             />
+            {search.value && (
+              <style.CloseIcon onClick={clearSearch}>
+                <style.CloseIconSvg />
+              </style.CloseIcon>
+
+            )}
           </style.WrapperInput>
           
           ) : (

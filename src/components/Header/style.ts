@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineClose } from 'react-icons/ai';
 
 export const Header = styled.header `
   display: flex;
@@ -9,7 +10,6 @@ export const Header = styled.header `
   width: 100%;
   border-bottom: 1px solid #c9c9c9;
 `
-
 export const Title = styled.h1 `
   font-size: 15px;
   font-weight: bold;
@@ -19,12 +19,10 @@ export const Title = styled.h1 `
 export const SubTitle =  styled.span `
   font-weight: normal;
 `
-
 export const Symbols = styled.div `
   display: flex;
   padding: 0 10px;
 `
-
 export const Icon =  styled.div `
   margin: 10px;
   cursor: pointer;
@@ -32,7 +30,6 @@ export const Icon =  styled.div `
     background: #c9c9c9;
   }
 `
-
 export const Profile =  styled.div `
   cursor: pointer;
   img{
@@ -42,8 +39,8 @@ export const Profile =  styled.div `
   }
   
 `
-
 export const WrapperInput = styled.div `
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -52,3 +49,17 @@ export const WrapperInput = styled.div `
     max-width: 100px;
   }
 `
+export const CloseIcon = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Ajuste este valor conforme necessário */
+  transform: translateY(-50%);
+`;
+export const CloseIconSvg = styled(AiOutlineClose)`
+  color: #747474;
+  font-size: 18px;
+  margin: 0 auto;
+`;
