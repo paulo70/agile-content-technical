@@ -6,6 +6,7 @@ export const Container  = styled(Original) `
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
+  z-index: 1;
 
   ul{
     flex: 1;
@@ -33,6 +34,7 @@ export const Container  = styled(Original) `
 `
 
 export const ItemDetails = styled.div `
+  background: #fff;
   margin: 40px 0 0 30px;
   width: 100%;
   flex: 1;
@@ -40,6 +42,17 @@ export const ItemDetails = styled.div `
   border: 1px solid  #b7b7b7;
   border-radius: 5px;
   padding: 10px;
+
+  &.fixed {
+    position: sticky;
+    top: 20px;
+  }
+
+  &.absolute {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
 
   a{
     font-size: 12px;
