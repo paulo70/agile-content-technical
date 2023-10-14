@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/GlobalStyles.ts'
-import Router from './routrer/App.tsx'
+import Router from './routrer/index.tsx'
 
 import SearchContextProvider from './Context/Search/ContextSearch.tsx'
 const theme = {};
