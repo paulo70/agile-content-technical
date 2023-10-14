@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useState, Dispatch, SetStateAction } from "react";
+import { 
+  ReactNode, 
+  createContext, 
+  useState, 
+  Dispatch, 
+  SetStateAction 
+} from "react";
 
 type Search = {
   value: string;
