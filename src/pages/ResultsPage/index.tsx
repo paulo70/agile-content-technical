@@ -59,7 +59,7 @@ const SearchResults = () => {
           ))}
         </ul>
       )}
-      {selectedItem && (
+      {selectedItem && search.value === "" &&(
         <Details
           image={selectedItem.image}
           title={selectedItem.title}

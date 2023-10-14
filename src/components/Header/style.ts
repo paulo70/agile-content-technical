@@ -49,6 +49,13 @@ export const WrapperInput = styled.div `
     max-width: 100px;
   }
 
+  @media (max-width: 758px){
+    background: #fff;
+    position: fixed;
+    top:0;
+    z-index: 20;
+  }
+
   @media (max-width: 768px) {
     input{
       width: 200px;
@@ -61,8 +68,13 @@ export const CloseIcon = styled.div`
   align-items: center;
   position: absolute;
   top: 50%;
-  right: 10px; /* Ajuste este valor conforme necessário */
+  right: 10px;
   transform: translateY(-50%);
+
+  @media(max-width: 768px){
+    right: 0;
+    left: 200px;
+  }
 `;
 export const CloseIconSvg = styled(AiOutlineClose)`
   color: #747474;
