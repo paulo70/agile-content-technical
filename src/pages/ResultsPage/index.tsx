@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import data from "../../services/faker";
 import { useState, useEffect, useContext} from "react";
 import { SearchContext } from "../../Context/Search/ContextSearch";
-import { Container, ItemDetails } from "./style";
+import { Container} from "./style";
+
+import Details, { PropsDetails } from "./detailsItem";
 
 interface SearchResultItem {
   type: string;
@@ -17,20 +19,13 @@ const SearchResults = () => {
   const { searchTerm } = useParams();
   const { search } = useContext(SearchContext);
   const [filterData, setFilterData] = useState<SearchResultItem[]>([]);
-  const [isItemDetailsFixed, setIsItemDetailsFixed] = useState(true);
-  const [selectedItem, setSelectedItem] = useState<{
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-  } | null>(null);
+  const [isItemDetailsFixed, setIsItemDetailsFixed] = useState<boolean>(true);
+  const [selectedItem, setSelectedItem] = useState<PropsDetails | null>(null);
 
 
   const handleGetItem = (item: SearchResultItem) => {
     setSelectedItem(item);
-    if (window.innerWidth <= 768) {
-      setIsItemDetailsFixed(false);
-    }
+    if (window.innerWidth <= 768) setIsItemDetailsFixed(false);
   };
 
   useEffect(() => {
@@ -65,12 +60,14 @@ const SearchResults = () => {
         </ul>
       )}
       {selectedItem && (
-        <ItemDetails className={isItemDetailsFixed ? "fixed" : "absolute"}>
-          <img src={selectedItem.image} alt="Images from animals" />
-          <a href="#">{selectedItem.url}</a>
-          <h3>{selectedItem.title}</h3>
-          <p>{selectedItem.description}</p>
-        </ItemDetails>
+        <Details
+          image={selectedItem.image}
+          title={selectedItem.title}
+          url={selectedItem.url}
+          description={selectedItem.description}
+          className={isItemDetailsFixed ? "fixed" : "absolute"}
+        />
+        
       )}
     </Container>
   );
