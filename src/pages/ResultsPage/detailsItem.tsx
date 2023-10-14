@@ -1,3 +1,4 @@
+import { RefObject, forwardRef } from 'react';
 import { ItemDetails } from "./style"
 
 export interface PropsDetails {
@@ -6,17 +7,20 @@ export interface PropsDetails {
   image: string;
   url: string;
   className?: string;
+  ref?: RefObject<HTMLDivElement>
 }
 
-const Details = ({title, description, image, url, className}: PropsDetails) => {
-  return (
-    <ItemDetails className={className}>
-      <img src={image} alt="Images from animals" />
-      <a href="#">{url}</a>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </ItemDetails>
-  )
-}
+const Details = forwardRef<HTMLDivElement, PropsDetails>(
+  ({ title, description, image, url, className }, ref) => {
+    return (
+      <ItemDetails ref={ref} className={className}>
+        <img src={image} alt="Images from animals" />
+        <a href="#">{url}</a>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </ItemDetails>
+    );
+  }
+);
 
 export default Details

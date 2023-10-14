@@ -42,16 +42,14 @@ export const ItemDetails = styled.div `
   border: 1px solid  #b7b7b7;
   border-radius: 5px;
   padding: 10px;
+  position: sticky;
+  top: 20px;
 
-  &.fixed {
-    position: sticky;
-    top: 20px;
-  }
 
-  &.absolute {
+  @media(max-width: 768px){
     position: absolute;
     top: 100px;
-    z-index: 10;
+    z-index: 20;
   }
 
   a{

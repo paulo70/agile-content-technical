@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useRef } from 'react';
 import data from "../../services/faker";
 import { useState, useEffect, useContext} from "react";
 import { SearchContext } from "../../Context/Search/ContextSearch";
@@ -19,13 +20,17 @@ const SearchResults = () => {
   const { searchTerm } = useParams();
   const { search } = useContext(SearchContext);
   const [filterData, setFilterData] = useState<SearchResultItem[]>([]);
-  const [isItemDetailsFixed, setIsItemDetailsFixed] = useState<boolean>(true);
   const [selectedItem, setSelectedItem] = useState<PropsDetails | null>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
 
 
   const handleGetItem = (item: SearchResultItem) => {
     setSelectedItem(item);
-    if (window.innerWidth <= 768) setIsItemDetailsFixed(false);
+    if (window.innerWidth <= 768) {
+      if (detailsRef.current) {
+        detailsRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   useEffect(() => {
@@ -61,11 +66,11 @@ const SearchResults = () => {
       )}
       {selectedItem && search.value === "" &&(
         <Details
+          ref={detailsRef}
           image={selectedItem.image}
           title={selectedItem.title}
           url={selectedItem.url}
           description={selectedItem.description}
-          className={isItemDetailsFixed ? "fixed" : "absolute"}
         />
         
       )}

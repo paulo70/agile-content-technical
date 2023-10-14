@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
     outline: none;
+    scroll-behavior: smooth;
   }
   body {
     font-family: Arial, sans-serif;
