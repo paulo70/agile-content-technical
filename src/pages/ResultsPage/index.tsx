@@ -37,8 +37,10 @@ const SearchResults = () => {
     const filteredData = data.filter((item) => {
       return (
         searchTerm &&
-        item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.type.toLowerCase().includes(search.value.toLowerCase())
+        (item.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.type.toLowerCase().includes(search.value.toLowerCase()) ||
+        item.description.toLowerCase().includes(search.value.toLowerCase())
+        )
       );
     });
     setFilterData(filteredData);
@@ -64,7 +66,7 @@ const SearchResults = () => {
           ))}
         </ul>
       )}
-      {selectedItem && search.value === "" &&(
+      {selectedItem &&(
         <Details
           ref={detailsRef}
           image={selectedItem.image}
